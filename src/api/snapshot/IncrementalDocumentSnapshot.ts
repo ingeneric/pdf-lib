@@ -29,4 +29,8 @@ export class IncrementalDocumentSnapshot implements DocumentSnapshot {
 
     return false;
   }
+
+  includeObject(objectNumber: number) {
+    this.indirectObjects.push(objectNumber);
+  }
 }

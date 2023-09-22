@@ -1361,19 +1361,25 @@ export default class PDFDocument {
   takeSnapshot(options: TakeSnapshotOptions): DocumentSnapshot {
     const { pageIndex } = options;
 
-    assertIs(pageIndex, 'pageIndex', ['number']);
-
-    const page = this.getPage(pageIndex);
     const acroFormRef = this.context.getObjectRef(
       this.getForm().acroForm.dict,
     )!;
     const catalogRef = this.context.getObjectRef(this.catalog)!;
+    const pagesRef = this.context.getObjectRef(this.catalog.Pages())!;
 
     const indirectObjects: number[] = [
-      page.ref.objectNumber,
       acroFormRef.objectNumber,
       catalogRef.objectNumber,
+      pagesRef.objectNumber,
     ];
+    if (typeof pageIndex === 'number') {
+      assertIs(pageIndex, 'pageIndex', ['number']);
+      const page = this.getPage(pageIndex);
+      indirectObjects.push(page.ref.objectNumber);
+    }
+    if (typeof acroFormRef.objectNumber === 'number') {
+      indirectObjects.push(acroFormRef.objectNumber);
+    }
     if (this.context.pdfFileDetails.useObjectStreams) {
       const form = this.getForm();
       const annotsRef = form.acroForm.dict.get(PDFName.of('Fields'));

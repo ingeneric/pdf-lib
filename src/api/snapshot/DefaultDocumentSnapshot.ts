@@ -7,6 +7,10 @@ export class DefaultDocumentSnapshot implements DocumentSnapshot {
   shouldSave(_objectNumber: number): boolean {
     return true;
   }
+
+  includeObject(_objectNumber: number) {
+    return undefined;
+  }
 }
 
 export const defaultDocumentSnapshot = new DefaultDocumentSnapshot();

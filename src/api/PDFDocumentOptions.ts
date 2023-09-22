@@ -26,7 +26,7 @@ export interface Base64SaveOptions extends SaveOptions {
 }
 
 export interface TakeSnapshotOptions {
-  pageIndex: number;
+  pageIndex?: number;
 }
 
 export interface LoadOptions {
