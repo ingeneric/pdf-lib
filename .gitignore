@@ -17,3 +17,8 @@ out.pdf
 *.tgz
 
 .vscode/settings.json
+.idea
+
+assets/real-world/
+Incremental.spec.ts
+package-lock.json

@@ -1,5 +1,5 @@
 {
-  "name": "pdf-lib",
+  "name": "@ingeneric/pdf-lib",
   "version": "1.17.1",
   "description": "Create and modify PDF files with JavaScript",
   "author": "Andrew Dillon <andrew.dillon.j@gmail.com>",
@@ -115,7 +115,7 @@
     "ts-jest": "^26.1.0",
     "tslint": "^6.1.2",
     "tslint-config-prettier": "^1.18.0",
-    "ttypescript": "^1.5.10",
+    "ttypescript": "^1.5.15",
     "typescript": "^3.9.5"
   },
   "license": "MIT",
