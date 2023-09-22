@@ -74,10 +74,11 @@ class PDFXRefStreamParser {
 
     const entries = this.parseEntries();
 
-    // for (let idx = 0, len = entries.length; idx < len; idx++) {
-    // const entry = entries[idx];
-    // if (entry.deleted) this.context.delete(entry.ref);
-    // }
+    for (let idx = 0, len = entries.length; idx < len; idx++) {
+      const entry = entries[idx];
+      // if (entry.deleted) this.context.delete(entry.ref);
+      this.context.updateLargestObjectNumber(entry.ref.objectNumber);
+    }
 
     return entries;
   }

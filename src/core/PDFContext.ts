@@ -88,6 +88,12 @@ class PDFContext {
     }
   }
 
+  updateLargestObjectNumber(largestObjectNumber: number): void {
+    if (largestObjectNumber > this.largestObjectNumber) {
+      this.largestObjectNumber = largestObjectNumber;
+    }
+  }
+
   nextRef(): PDFRef {
     this.largestObjectNumber += 1;
     return PDFRef.of(this.largestObjectNumber);
